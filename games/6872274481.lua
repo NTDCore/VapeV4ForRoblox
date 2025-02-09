@@ -718,7 +718,7 @@ run(function()
 		AfkStatus = debug.getproto(Knit.Controllers.AfkController.KnitStart, 1),
 		AttackEntity = Knit.Controllers.SwordController.sendServerRequest,
 		BeePickup = Knit.Controllers.BeeNetController.trigger,
-		ConsumeBattery = debug.getproto(debug.getproto(Knit.Controllers.BatteryController.KnitStart, 1), 1),
+		--ConsumeBattery = debug.getproto(debug.getproto(Knit.Controllers.BatteryController.KnitStart, 1), 1),
 		CannonAim = debug.getproto(Knit.Controllers.CannonController.startAiming, 5),
 		CannonLaunch = Knit.Controllers.CannonHandController.launchSelf,
 		ConsumeItem = debug.getproto(Knit.Controllers.ConsumeController.onEnable, 1),
@@ -733,7 +733,7 @@ run(function()
 		FireProjectile = debug.getupvalue(Knit.Controllers.ProjectileController.launchProjectileWithValues, 2),
 		GroundHit = Knit.Controllers.FallDamageController.KnitStart,
 		GuitarHeal = Knit.Controllers.GuitarController.performHeal,
-		HannahKill = debug.getproto(debug.getproto(Knit.Controllers.HannahController.KnitStart, 2), 1),
+		--HannahKill = debug.getproto(debug.getproto(Knit.Controllers.HannahController.KnitStart, 2), 1),
 		HarvestCrop = debug.getproto(debug.getproto(Knit.Controllers.CropController.KnitStart, 4), 1),
 		KaliyahPunch = debug.getproto(debug.getproto(Knit.Controllers.DragonSlayerController.KnitStart, 2), 1),
 		MageSelect = debug.getproto(Knit.Controllers.MageController.registerTomeInteraction, 1),
@@ -4053,7 +4053,7 @@ run(function()
 	end
 	
 	local AutoKitFunctions = {
-		battery = function()
+		--[[battery = function()
 			repeat
 				if entitylib.isAlive then
 					local localPosition = entitylib.character.RootPart.Position
@@ -4068,7 +4068,7 @@ run(function()
 				end
 				task.wait(0.1)
 			until not AutoKit.Enabled
-		end,
+		end,]]
 		beekeeper = function()
 			kitCollection('bee', function(v)
 				bedwars.Client:Get(remotes.BeePickup):SendToServer({beeId = v:GetAttribute('BeeId')})
@@ -4186,9 +4186,10 @@ run(function()
 				bedwars.LaunchPadController.attemptLaunch = old
 			end)
 		end,
+
 		hannah = function()
 			kitCollection('HannahExecuteInteraction', function(v)
-				local billboard = bedwars.Client:Get(remotes.HannahKill):CallServer({
+				local billboard = replicatedStorage.rbxts_include.node_modules['@rbxts'].net.out.NetManaged.HannahPromptTrigger:InvokeServer({
 					user = lplr,
 					victimEntity = v
 				}) and v:FindFirstChild('Hannah Execution Icon')
