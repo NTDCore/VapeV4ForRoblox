@@ -1,5 +1,6 @@
 > [!WARNING]
-> Vape is discontinued, this page will now be held as an archive of my work more then anything.
+> Vape is discontinued, this page will now be held as an archive of 7GrandDadPGN's work more then anything.
+> I don't know, I should update vape or not, but I'll leave it be.
 
 <p align="center">
   <picture>
@@ -23,7 +24,7 @@
 1. Download the specific scripting utility of your choice.
 2. Execute the provided loadstring below.
 ```luau
-loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NTDCore/VapeV4ForRoblox/main/NewMainScript.lua", true))()
 ```
 
 ## Possible Issues
